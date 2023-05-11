@@ -19,6 +19,14 @@ const pageCache = new CacheFirst({
   ],
 });
 
+const matchCallback = ({request}) => {
+  return (
+    request.destination === 'style' ||
+    request.destination === 'script' ||
+    request.destination === 'worker'
+  );
+}
+
 warmStrategyCache({
   urls: ['/index.html', '/'],
   strategy: pageCache,
@@ -27,4 +35,7 @@ warmStrategyCache({
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
 // TODO: Implement asset caching
-registerRoute();
+registerRoute(matchCallback, new StaleWhileRevalidate({
+  cacheName: 'asset cache', 
+  plugins: [new CacheableResponsePlugin({statuses: [0, 200]})]
+}));

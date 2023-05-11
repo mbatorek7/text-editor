@@ -18,7 +18,20 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      
+      new HtmlWebpackPlugin({
+        template: './index.html',
+        title: 'Jate Text Editor'
+      }),
+      new WebpackPwaManifest({
+        inject: true,
+        name: 'Text Editor',
+        short_name: 'J.A.T.E Text Editor',
+        description: '',
+        background_color: '',
+        theme_color: '',
+        start_url: '/',
+        publicPath: '/',
+      })
     ],
 
     module: {
