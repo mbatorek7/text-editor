@@ -36,10 +36,10 @@ THEN I should have proper build scripts for a webpack application
 ```
 
 ## Description
-
+With this application, the user is able to take any notes whether they have an internet connection or not. If the user takes notes without a connection, the data will be saved and uploaded the next time a connection is established.
 
 <p align="center">
-    <a href="https://github.com/mbatorek7/hw19-text-editor"><img src="https://img.shields.io/badge/-See Live Site-success?style=for-the-badge"  alt="GitHub Repo" ></a>
+    <a href="https://batorek-jate-text-editor.herokuapp.com/"><img src="https://img.shields.io/badge/-See Live Site-success?style=for-the-badge"  alt="GitHub Repo" ></a>
 </p>
 
 ## Screenshots
