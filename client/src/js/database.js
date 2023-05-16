@@ -17,10 +17,9 @@ export const putDb = async (content) => {
   const db = await openDB("jate", 1);
   const transaction = db.transaction("jate", "readwrite");
   const store = transaction.objectStore("jate");
-  const request = store.put({id:1, value:content});
+  const request = store.put({ id: 1, value: content });
   const response = await request;
-  response ? console.log("data saved"):console.error("error. try again.");
-  //console.error('putDb not implemented');
+  response ? console.log("data saved") : console.error("error. try again.");
 }
 
 // TODO: Add logic for a method that gets all the content from the database
@@ -30,8 +29,8 @@ export const getDb = async () => {
   const store = transaction.objectStore("jate");
   const request = store.get(1);
   const response = await request;
-  response ? console.log("data retrieved", response.value):console.error("error. try again.");
-  //console.error('getDb not implemented');
+  response ? console.log("data retrieved", response.value) : console.error("error. try again.");
+  return response?.value;
 }
 
 initdb();
